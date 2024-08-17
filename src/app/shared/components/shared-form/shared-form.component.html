@@ -1,0 +1,36 @@
+<div class="p-10">
+<h1>{{data.title}}</h1>
+
+<form [formGroup]="form">
+    <div class="grid grid-cols-1 my-1">
+    <ng-container *ngFor="let item of form.controls | keyvalue"> 
+        <!-- keyValue pipe it take object and convert it to array 
+            controls:{
+                nameEn:formControl
+                nameAr/lformControl
+            }
+
+            so it convert like this 
+            
+            [{
+                kay:nameEn,
+                value:formControl->{validators,erros,value}
+            }]
+        -->
+        <mat-form-field>
+            <mat-label>{{showName(item['key'])}} </mat-label>
+            <input type="text" matInput [formControlName]="item['key']">
+            @if ( form.get(item['key'])?.hasError('required') && form.get(item['key'])?.touched ) {
+                <mat-error>{{showName(item['key'])}} is required</mat-error>
+            }
+        </mat-form-field>
+    </ng-container>
+
+</div>
+
+    <div class="flex justify-center item-center gap-3">
+        <button (click)="onSave()" mat-raised-button color="primary">save</button>
+    <button (click)="onClose()"mat-raised-button>cancel</button>
+    </div>
+</form>
+</div>

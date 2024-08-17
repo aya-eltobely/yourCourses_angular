@@ -1,0 +1,15 @@
+<div class="p-10">
+    <h1> Are you sure to {{title}} ? </h1>
+
+    <mat-dialog-actions class="w-full">
+        <button  mat-flat-button color="warn" class="BgPurpleColor"
+            (click)="onDeleteData()">
+            {{title}}
+        </button>
+
+        <button mat-stroked-button  (click)="onClose()">Close</button>
+    </mat-dialog-actions>
+
+
+
+</div>

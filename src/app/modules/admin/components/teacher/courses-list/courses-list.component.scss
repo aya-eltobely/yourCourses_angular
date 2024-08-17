@@ -1,0 +1,36 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .sidebar {
+    width: 300px;
+    border-left: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-viewport {
+    flex: 1;
+  }
+  
+  .example-item {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #ccc;
+  }
+  

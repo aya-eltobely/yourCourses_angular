@@ -1,0 +1,49 @@
+<nav class="p-2 w-full z-[1000] sticky  " style="background-color: #fff;box-shadow: -3px 14px 25px -27px rgba(82,72,82,1);">
+    <div class="container mx-auto ">
+
+        <div class="flex items-center justify-between text-white">
+
+            <div class=" font-semibold text-lg flex">
+                <img src="../../../assets/jpg/Cafe_Logo-removebg-preview.png" class="w-12">
+                <h2 class="text-black m-0 p-0 pt-[14px] " style="font-family: 'Edu VIC WA NT Beginner', cursive; font-weight: 700;">Caffeine Dreams</h2>
+            </div>
+
+
+
+            @if (islogged) {
+                <div class="hidden md:flex justify-between text-black">
+                    <!-- // when user log in -->
+                    <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                        <mat-icon>account_box</mat-icon>
+                    </button> -->
+                        <div  [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="flex gap-2  w-[250px]">
+                            <img src="../../../assets/png/images-removebg-preview.png" class="w-[25px] h-[25px]" alt="">
+                            <!-- <img src="../../../assets/png/266033.png" class="w-[27%]" alt=""> -->
+                            <p  class="pt-[5px]"> Welcome Back <b>{{adminName}} </b> </p>
+                        </div>
+                        <mat-menu #menu="matMenu" >
+                            <button mat-menu-item (click)="onlogout()">
+                                <mat-icon>logout</mat-icon>
+                                <span>Log Out</span>
+                            </button>
+                        </mat-menu>                
+                </div>
+            }
+            @else {
+                <a routerLink="/login" class="text-white" > Log In </a>
+            }
+
+
+            <!-- <div class="md:hidden">
+                <button class=" focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div> -->
+        </div>
+        
+    </div>
+</nav>

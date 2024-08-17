@@ -1,0 +1,53 @@
+<div class="p-10">
+
+
+    <h1> Add SubCategory </h1>
+
+    <form [formGroup]="subcategoryForm">
+
+        <mat-form-field class="example-full-width w-full">
+            <mat-label>Name En</mat-label>
+            <input matInput formControlName="name_en">
+            @if ( subcategoryForm.get('name_en')?.hasError('required') && subcategoryForm.get('name_en')?.touched ) {
+            <mat-error>name is required</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width w-full">
+            <mat-label>Name Ar</mat-label>
+            <input matInput formControlName="name_ar">
+            @if ( subcategoryForm.get('name_ar')?.hasError('required') && subcategoryForm.get('name_ar')?.touched ) {
+            <mat-error>name is required</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Select Category</mat-label>
+            <mat-select formControlName="categoryId">
+                <mat-option *ngFor="let cat of allCategory" value={{cat.id}}>{{cat.name_en}} ||
+                    {{cat.name_ar}}</mat-option>
+            </mat-select>
+            @if ( subcategoryForm.get('categoryId')?.hasError('required') && subcategoryForm.get('categoryId')?.touched
+            ) {
+            <mat-error>category is required</mat-error>
+            }
+        </mat-form-field>
+
+
+    </form>
+
+
+
+    <div class="w-full">
+        <button mat-raised-button class="mr-2 BgPurpleColor" (click)="onAddSubCategory()">
+            Add
+        </button>
+
+        <button mat-raised-button class="mr-2 BgPurpleColor" (click)="onEditSubCategory()">
+            Edit
+        </button>
+
+        <button mat-stroked-button color="warn" (click)="onClose()">Close</button>
+    </div>
+
+</div>

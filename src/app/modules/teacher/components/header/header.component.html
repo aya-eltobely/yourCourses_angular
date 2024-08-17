@@ -1,0 +1,90 @@
+<nav class="bg-indigo-800">
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+      <div class="relative flex items-center justify-between h-16">
+        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+
+          <!-- Mobile menu button-->
+          <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false" (click)="isOpen = !isOpen">
+            <span class="sr-only">Open main menu</span>
+            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+
+        </div>
+
+        <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start lg:justify-between">
+
+          <div class="flex">
+             <div class="text-white flex-shrink-0">
+            <h1>YourCourses</h1>
+          </div>
+          <div class="hidden sm:block sm:ml-6">
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-300 hover:bg-rose-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+              <a href="#" class="text-gray-300 hover:bg-rose-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
+              <a href="#" class="text-gray-300 hover:bg-rose-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+              <a href="#" class="text-gray-300 hover:bg-rose-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
+            </div>
+          </div>
+        </div>
+         
+
+            @if (islogged) {
+              <div class="hidden md:flex justify-between text-white px-3 py-2 cursor-pointer ">
+                      <div  [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="flex gap-2  w-[250px]">
+                          <img src="../../../../../assets/images/png/8b167af653c2399dd93b952a48740620.jpg" class="w-[25px] h-[25px] text-white rounded" alt="">
+                          <p  class="pt-[5px]"> Welcome Back <b>{{ teacherName}} </b> </p>
+                      </div>
+                      <mat-menu #menu="matMenu" >
+                          <button mat-menu-item (click)="onlogout()">
+                              <mat-icon>logout</mat-icon>
+                              <span>Log Out</span>
+                          </button>
+                      </mat-menu>                
+              </div>
+          }
+          @else {
+              <a routerLink="/login" class="text-white" > Log In </a>
+          }
+
+        </div>
+      </div>
+    </div>
+  
+    <div class="sm:hidden" id="mobile-menu" [class.hidden]="!isOpen">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="#" class="text-gray-300 hover:bg-rose-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
+        <a href="#" class="text-gray-300 hover:bg-rose-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
+        <a href="#" class="text-gray-300 hover:bg-rose-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+        <a href="#" class="text-gray-300 hover:bg-rose-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
+      </div>
+
+      @if (islogged) {
+        <div class="md:flex justify-between text-white px-3 py-2 cursor-pointer  sm:ml-6">
+            <!-- // when user log in -->
+            <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>account_box</mat-icon>
+            </button> -->
+                <div  [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="flex gap-2  w-[250px]">
+                    <img src="../../../../../assets/images/png/8b167af653c2399dd93b952a48740620.jpg" class="w-[25px] h-[25px]" alt="">
+                    <!-- <img src="../../../assets/png/266033.png" class="w-[27%]" alt=""> -->
+                    <p  class="pt-[5px]"> Welcome Back <b>{{teacherName}} </b> </p>
+                </div>
+                <mat-menu #menu="matMenu" >
+                    <button mat-menu-item (click)="onlogout()">
+                        <mat-icon>logout</mat-icon>
+                        <span>Log Out</span>
+                    </button>
+                </mat-menu>                
+        </div>
+    }
+    @else {
+        <a routerLink="/login" class="text-white" > Log In </a>
+    }
+    </div>
+  </nav>
+  

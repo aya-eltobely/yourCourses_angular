@@ -1,0 +1,31 @@
+<cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+
+  <ng-container *ngIf="reviews.length > 0; else noReviews">
+    <h2 class="text-center py-4"> {{reviews[0].courseName | titlecase}} Reviews </h2>
+
+    <div *cdkVirtualFor="let item of reviews; let last = last" class="example-item">
+
+
+      <div class="flex p-3">
+        <div class="w-[64px]">
+          <mat-icon class="text-[48px] text-[#3f51b5]" style="width: 100% !important; height: 100% !important;" >person</mat-icon>
+        </div>
+        <div class="leading-3">
+          <p> <b>{{item.studentName |titlecase}}</b>  </p>
+          <p class="text-[#b7b4b4] w-[205px]"> {{item.content}}. </p>
+        </div>
+
+      </div>
+
+      <hr size="20px" class="px-3" *ngIf="!last"> 
+
+    </div>
+    
+  </ng-container>
+
+  <ng-template #noReviews>
+    <p class="text-center pt-4">No Reviews Found</p>
+  </ng-template>
+    
+</cdk-virtual-scroll-viewport>
+  

@@ -1,0 +1,45 @@
+<div class="p-10">
+    <h1> Add Category </h1>
+    <form [formGroup]="categoryForm">
+
+        <mat-form-field class="example-full-width w-full">
+            <mat-label>Name En</mat-label>
+            <input matInput formControlName="name_en">
+            @if ( categoryForm.get('name_en')?.hasError('required') && categoryForm.get('name_en')?.touched ) {
+                <mat-error>name is required</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width w-full">
+            <mat-label>Name Ar</mat-label>
+            <input matInput formControlName="name_ar">
+            @if ( categoryForm.get('name_ar')?.hasError('required') && categoryForm.get('name_ar')?.touched ) {
+                <mat-error>name is required</mat-error>
+            }
+        </mat-form-field>
+
+
+    </form>
+
+    <div class="w-full">
+        @if (data) {
+            <button  mat-raised-button class="mr-2 BgPurpleColor" 
+            (click)="onEditCategory()"  >
+            Edit
+        </button>
+        }
+        @else {
+            <button mat-raised-button class="mr-2 BgPurpleColor" 
+            (click)="onAddCategory()"  >
+            Add
+        </button>
+        }
+        
+
+        
+
+
+        <button mat-stroked-button color="warn"   (click)="onClose()">Close</button>
+    </div>
+
+</div>
